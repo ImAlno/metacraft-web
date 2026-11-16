@@ -52,7 +52,7 @@
 
 <Seo
 	title="Museum Showdown 2026"
-	description="The Best West, the Humble East and the Sophisticated South race to register the most different items with the Item Collector, and you keep every item you bring. Top 5 collectors win their own Collector Chest. Pick your side: /museum join"
+	description="The Best West, the Humble East and the Sophisticated South race to register the most different items with the Item Collector, and you keep every item you bring. The winning team gets the Ender Chest Lid, and the top 5 collectors win their own Collector Chest. Pick your side: /museum join"
 	image="/museum/poster.jpg"
 />
 
@@ -137,10 +137,35 @@
 		<Race />
 	</section>
 
+	<!-- ───────────── TEAM PRIZE ───────────── -->
+	<section class="section split reveal" {@attach inView()}>
+		<div class="copy">
+			<span class="step">03</span>
+			<h2>The winning team gets the <em>Ender Chest Lid</em></h2>
+			<p class="lead">
+				Every item that's new for your team brings it one step closer to the Ender Chest Lid.
+			</p>
+			<p class="lead rivals">
+				Will it be
+				{#each TEAMS as team, i (team.name)}<span style:color={team.chat}>{fullName(team)}</span
+					>{i === 0 ? ', ' : i === 1 ? ' or ' : '?'}{/each}
+			</p>
+		</div>
+		<div class="ender">
+			<ModelViewer
+				model="ender_chest_lid_hat"
+				label="The Ender Chest Lid, the prize for the winning team"
+				yaw={0.4}
+				pitch={0.4}
+				spin={0.6}
+			/>
+		</div>
+	</section>
+
 	<!-- ───────────── PRIZES ───────────── -->
 	<section class="section reveal" {@attach inView()}>
 		<div class="copy centered">
-			<span class="step">03</span>
+			<span class="step">04</span>
 			<h2>Top <em>5</em> collectors win</h2>
 			<p class="lead">
 				Each of the five best collectors gets their own overflowing Collector Chest helmet skin.
@@ -175,7 +200,7 @@
 	<!-- ───────────── PARTICIPATION ───────────── -->
 	<section class="section split reverse reveal" {@attach inView()}>
 		<div class="copy">
-			<span class="step">04</span>
+			<span class="step">05</span>
 			<h2>Register <em>10 items</em>, get the Chest Lid Hat</h2>
 			<p class="lead">
 				Not chasing the top 5? Everyone who registers 10 items walks away with the Chest Lid Hat.
@@ -565,6 +590,17 @@
 	}
 	.runner .rank-label {
 		font-size: clamp(1.5rem, 3vw, 2.5rem);
+	}
+	.rivals span {
+		font-weight: 700;
+	}
+	.ender {
+		aspect-ratio: 1;
+		width: 100%;
+		max-width: 30rem;
+		justify-self: center;
+		/* ender purple */
+		background: radial-gradient(circle, rgba(170, 90, 255, 0.3), transparent 62%);
 	}
 	.hat {
 		aspect-ratio: 1;
